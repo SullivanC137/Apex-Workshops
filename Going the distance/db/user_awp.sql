@@ -1,4 +1,5 @@
-create user awp identified by awp;
+drop user awp cascade;
+create user awp identified by awp quota 100M on users;
  GRANT CREATE DIMENSION TO AWP;
  GRANT CREATE TABLE TO AWP;
  GRANT CREATE JOB TO AWP;

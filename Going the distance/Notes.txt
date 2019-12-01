@@ -1,0 +1,66 @@
+Use case: an app to register running events
+
+Entities:
+- runners
+  - first name
+  - last name
+  - date of birth
+  - gender
+  - team name
+  - sponsor
+  - email
+  - phone
+  - address
+  - photo
+
+- volunteers
+  - first name
+  - last name
+  - date of birth
+  - gender
+  - email
+  - phone
+  - duties: timekeeper/post crew
+  - organization
+
+- organization
+  - code
+  - name
+  - phone
+  - office_address
+  - type: business/nonprofit/government
+  - logo
+
+- events
+  - name
+  - date
+  - total_distance
+  - type (eg:team relay)
+
+- event_results
+  - event
+  - runner
+  - time
+
+
+*business rules*
+- automatically generate group
+  kids: all genders below 14
+  21M males below age 21
+  21F females below age 21
+  M
+  F
+  50M males older than 50
+  50F females older than 50
+
+- 
+
+QuickSQL
+volunteers /insert 30
+  firstname /nn
+  lastname  /nn
+  date_of_birth /nn
+  gender vc1 /nn
+  email
+  phone
+  duties
