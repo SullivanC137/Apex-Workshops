@@ -1,0 +1,52 @@
+Some Bussiness Rules:
+
+A. All makes and models should be in capital letters
+   Navigate to the interactive grid: cartypes and go to the app builder
+  1. add following javascript code to custom attributes of make and model columns
+     onKeyUp="this.value=this.value.toUpperCase();" 
+
+B. Model should be unique per make.
+  1. create a validation: right mouse click on validations
+     name = "make unique per model"
+     editable region = "Cartypes"
+     type = no rows returned
+     SQL Query:
+     select 'combination already exists'
+     from   cartypes
+     where  model = :MODEL
+     and    make  = :MAKE
+     Error message = "Make must be unique per model."
+  2. save and test
+
+C. A manager can only manage one department
+   Navigate to the create/edit department modal form and open the app builder
+  1. add a validation on item :P<XX>_MANAGER_ID
+     name = "Employee can only manage 1 department (INSERT)"
+     type = "no rows returned"
+     sql = 
+     select 1
+     from   oehr_departments
+     where  manager_id = :P<XX>_MANAGER_ID
+     Error message = "This employee already manages another department."
+     when button pressed = CREATE
+
+  2. add a validation on item :P<XX>_MANAGER_ID
+     name = "Employee can only manage 1 department (INSERT)"
+     type = "no rows returned"
+     sql = 
+     select 1
+     from   oehr_departments
+     where  manager_id = :P<XX>_MANAGER_ID
+     and    department_id != :P<XX>_DEPARTMENT_ID
+     Error message = "This employee already manages another department."
+     when button pressed = SAVE
+
+D. Authentication and autorisation
+  1. Shared Components --> Authentication --> set awp_authentication as current
+  2. edit page 9999 - make custom login process current
+  3. Shared Components --> Lists --> Navigation menu
+     set navigation list item for users to awp_adminitrator
+                                  employees --> awp_hr
+                                  cars      --> awp_hr
+  4. test login and autorisation
+  5. Optional: change order of list items and add an icon

@@ -1,0 +1,7 @@
+Some more BusinessRules to challenge yourself:
+
+E. Car license plate shoud be unique
+F. Car type should be easier to find (extra select list)
+G. Production year cannot be in the future
+H. Car assignment end date must be after start date
+I. Car assignment periods cannot overlap for the same Car

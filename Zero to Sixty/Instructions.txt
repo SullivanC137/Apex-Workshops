@@ -1,0 +1,39 @@
+opdrachten set 1 REPORTS/FORMS/AUTHENTICATION/AUTORISATION
+--
+-- install sample dataset HR --> create application too
+-- Browse around the created application
+-- import application f1000AWP00.sql
+create a report and form on departments   --> classic report + modal form
+create a report and form on employees     --> interactive report + normal form/
+create a report and form on cartypes      --> interactive grid
+create a report and form on cars
+--
+set awp_authentication as current
+edit page 9999 - make custom login process current
+set navigation list item for users to awp_adminitrator
+                             employees --> awp_hr
+                             cars      --> awp_car_maintenance
+test login and autorisation
+--
+business rules:
+- license plate unique
+- cascading select list
+- unique make and model
+- make and model should be in uppercase
+
+opdrachten set 2 
+
+
+
+
+
+opdrachten set 3
+
+Links:
+https://apex.oracle.com
+https://codepen.io/codepoet/pen/xVmwBV
+https://codepen.io/#
+
+img{
+  width:75px;
+}

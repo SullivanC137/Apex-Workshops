@@ -1,0 +1,117 @@
+Start building basic standard pages: reports and form
+We will use Apex to generate some reports and forms
+Section A: Classic reports and modal forms
+
+1. Create a classic report and modal form on table "OEHR_DEPARTMENTS"
+  a. Click on Create Page and choose "Form" and then "Report with Form on Table", click next
+  b. Report Type = Classic Report
+     Report Page Name = Departments
+     Form Page Name = Department
+     Form Page Mode = Modal Dialog
+     Click Next
+  c. Create a new navigation entry: Departments with no parent selected
+     Click Next
+  d. Choose Table name = OEHR_DEPARTMENTS, all columns should be included, click Next
+  e. Select all Columns to be shown included in Form
+     Select Primary Key Column = DEPARTMENT_ID
+     Source for PK = Existing Trigger
+     Click Create
+  f. Run this report page (Play button in app builder)
+  g. Test the Form page (insert/update/delete)
+
+2. Customize/Edit the report page: Navigate to the page and click on "edit page"
+  a. change the report title to Departments
+  b. change column "department id"
+    i.   change heading to Location, instead of Location id
+    ii.  change Type from "Plain Text" to "Plain Text (Based on List of Values)"
+    iii. for List Of Values enter:
+         Type = SQL Query
+         SQL Query = select street_address||', '||city as display
+                     ,      location_id                as return
+                     from   oehr_locations
+  c. change column "manager id" in the same way but use Query
+     select last_name||', '||first_name d
+     ,      employee_id                 r
+     from   oehr_employees
+  d. change the button position of the create button to "Edit"
+  e. change the report Attributes of this report:
+     Appearance --> Template options --> Stretch Report
+
+3. Add Search Functionality to report page
+  a. Add an item to region "Departments": right mouse click on region in app builder
+     Name = P<XX>_SEARCH_DEP_NAME  (the xx will be your page number)
+     Type = Text Field
+     Label = Search Department Name
+     Template = Optional - Floating
+     Icon = fa-search
+     Submit when enter pressed = Yes
+  b. Edit Source for Region Departments, SQL Query = 
+  select DEPARTMENT_ID, 
+         DEPARTMENT_NAME,
+         MANAGER_ID,
+         LOCATION_ID
+  from OEHR_DEPARTMENTS
+  where instr(department_name,:P<XX>_SEARCH_DEP_NAME) > 0
+  or    :P11_SEARCH_DEP_NAME is null
+  c. Save, Run and test page.
+  d. **Optional: Add clear search button: right mouse click on region buttons
+     i.  Button Name = CLEAR
+         Action = Submit Page
+     ii. Create a proces: right mouse click on processing
+         Name = CLEAR SEARCH
+         Type = Clear Session State
+         Settings: Type = Clear items, Item = :P<XX>_SEARCH_DEP_NAME
+         When button pressed = CLEAR
+
+ SECTION B: Modifying the modal form
+ Navigate to your modal form: Departments and click "edit page"
+ We will change the textfields for manager id and location id to select lists, using shared components
+1. Navigate to shared components --> List of values , click create
+   a. Choose "From Scratch" , click next
+   b. Name = employee_name_return_id, Type = Dynamic, then click next
+   c. SQL Query = select last_name||', '||first_name d
+                  ,      employee_id                 r
+                  from   oehr_employees
+   d. click Create
+2. Do the same for oehr_locations
+   name = location_name_return_id
+   SQL Query = select street_address||', '||city as display
+               ,      location_id                as return
+               from   oehr_locations
+3. Go back to the Form Page definition, via application builder and change the manager field
+   a. change type from number field to Popup LOV
+   b. change label to Manager instead of Manager id
+   c. List Of Values: Type = Shared Component
+   d. List Of Values: employee_name_return_id
+4. Do the same for location field, but use a select list instead of a popup 
+5. Rename the region to Department
+6. Edit the delete button
+   a. Appearance --> Template Options
+   b. Type = Danger
+
+SECTION C: Interactive Report and Normal Form
+1. Go through the same wizard for making a report + form combination but this time choose/enter:
+   report page name = Employees
+   form page name = Employee
+   form page mode = normal
+   navigation entry = Employees
+   table = oehr_employees
+2. Edit the interactive report:
+   make employee_id a hidden column (type = hidden column)
+   use the recently made List of values employee_name_returning_id to display manager name
+
+SECTION D: Interactive Grid
+1. Create a new page, choose Form and then Editable Interactive Grid
+2. Enter Page Name = Car types, PAge Mode = Normal
+3. New navigation entry = Car types, No parent --> Next
+4. Editing enabled  = Yes
+   Source Type = Table
+   table name = cartypes
+   primary key = ID
+   Click Create
+5. Run the page and check the results
+6. Go back into edit mode and remove columns:
+   created, created_by, updated, updated_by
+7. change following columns from text area to text field:
+   make, model, description
+8. Test: add, edit delete a few. Make sure to leave some good testdata as we will need them for next phases

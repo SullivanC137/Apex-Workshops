@@ -1,0 +1,18 @@
+ Install Sample Dataset HR and create a demo application from this Dataset
+ This is the base setup for our workshop today.
+
+1.  Go to SQL Workshop --> Utilities --> Sample Datasets
+2.  Install the HR Dataset, Create an application from this Dataset
+3.  Run the application and login with your Apex credentials
+4.  Browse through the application to view objects and Dataset
+5.  Go to SQL Workshop --> Object Browser
+6.  View the objects and data
+7.  Go to SQL Workshop --> SQL Scripts --> Upload
+8.  Upload and run carsDatamodel01.sql
+9.  View the new objects in object browser
+10. Import application f1000AWP00.sql, install supporting objects, use application ID = 1000 if possible
+11. View the extra objects in object browser: Tables, Triggers, Packages
+12. Login to the new application with your apex credentials
+
+
+

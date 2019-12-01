@@ -1,0 +1,137 @@
+
+
+Section A: Make a report from scratch
+1. Create a blank page
+   name = cars
+   page mode = normal
+   new navigation entry = Cars
+2. Create a new report region on this page
+   a. Right mouse click on "Content Body" --> Create region
+      Title = Cars
+      Type  = Classic report
+      Source type = SQL Query
+      Query = 
+      select c.id
+      ,      ct.make||' '||ct.model make_model
+      ,      c.license_plate
+      ,      c.trim
+      ,      c.color
+      ,      dbms_lob.getlength(c.picture) picture
+      from   cars c
+      join   cartypes ct on c.cartype_id = ct.id
+   b. save and run
+
+Section B: Make a form to insert some cars
+1. Create a form on table cars
+   a. name = Car
+      page mode = normal
+      NEXT
+   b. branch on submit/cancel: <enter the page number of the cars report page>
+      NEXT
+   c. identify an existing navigation entry: Cars
+      NEXT
+   d. select all columns except created, created_by, updated, updated_by
+                                picture filename, mimetype, charset, lastupd
+      NEXT
+   e. select primary key column: id
+      choose existing trigger
+      CREATE
+2. edit the form
+   a. change all the text area fields to normal text fields
+   b. change the cartype_id field to a select list or popup with query:
+        select make||' '||model d
+        ,      id               r
+        from   cartypes
+   c. change the odom_unit field to a static select list with values KM and MI
+   d. enter a car to test this page. Be sure to add a picture
+
+Section C: Continue with the report page
+1. Add a button to navigate to your "Car" form page
+  a. right mouse click on your report --> add button
+  b. button name = ADD_CAR
+     Appearance --> Button template = Text with Icon
+                    Icon = fa-plus
+     Behaviour --> Redirect to page in this application
+                   Target = <choose your form page number>
+                   clear cache = <choose your form page number>
+  c. Save and test your button
+2. Add an icon to navigate to a car record
+  a. edit report column ID, change type  from plain text to link
+     Target = Page in this application
+     Page = <choose your form page number>
+     Set Items --> P<XX>_ID  value --> ID
+     Link text = <img src="#IMAGE_PREFIX#app_ui/img/icons/apex-edit-pencil.png" class="apex-edit-pencil" alt="Edit car details">
+  c. Save and test this link
+3. Edit the picture column to show uploaded picture
+  a. change picture column from plain text to "display image"
+     blob attributes --> table name = cars
+                         blob column = picture
+                         primary key = ID
+  b. save and test
+  c. picture is too big. add inline css to page definition
+     img{
+      width:100px;
+       }
+  d. save and test. Add a few more cars for further testing of other functionality
+
+Section D: Add more functionality: Assign a car to an employee
+1. Add modal page to assign a car to an employee by creating a modal form (Car assignment) on table emp_cars
+   a. do not add the logging columns to the form
+   b. hide the car_id field
+   c. make the employee_id field a popup list using the previously developed LOV for employees
+
+2. Go back to your report page and add a column to the report, showing which employee has the car currently assigned to her/him
+   Edit the source query
+   Query:
+   with emp_cars_max as
+   (select *
+   from   emp_cars ec2
+   where  sysdate between ec2.start_date and nvl(end_date,sysdate+1)
+   )
+   select c.id
+   ,      ct.make||' '||ct.model make_model
+   ,      c.license_plate
+   ,      c.trim
+   ,      c.color
+   ,      dbms_lob.getlength(c.picture) picture
+   ,      emp.last_name ||' '||emp.first_name assigned_employee
+   ,      ec.id emp_car_id
+   ,      ec.employee_id
+   from   cars c
+   join   cartypes ct on c.cartype_id = ct.id
+   left outer join  emp_cars_max ec on ec.car_id = c.id
+   left outer join  oehr_employees emp on emp.employee_id = ec.employee_id
+--
+   b. hide columns employee_id, emp_car_id
+3. Add a derived column to the Cars report and make it a link to your new modal form
+   a. send the car.id value to this form via the link
+   b. test this form by assigning a car to an employee
+   c. Note: the report page will not refresh automatically ... yet. To achieve this ad a dynamic application
+      right mouse click on report "Cars" --> add dynamic action:
+      i.  identification: name = refresh after close dialog
+          when: event = dialog closed
+                selection type = region
+                region = Cars
+      ii. true action
+          action = refresh region
+          selection type = region
+          region = cars
+      iii. save and test your modal page
+
+4. Add a report region as a sub-region in your newly created "Car assignment" modal page
+   a.right mouse click on your form region --> add sub region:
+     title = Employee cars
+     identification type = classic report
+     source type = table/view
+     table_name = emp_cars
+     where clause = "car_id = :P<XX>_CAR_ID"
+     Page items to submit = P<XX>_CAR_ID
+   b.only show columns: ID, EMPLOYEE_ID, START_DATE, END_DATE
+   c.change the ID column from plain text to a link which navigates to this same page, but populates
+    the P<XX>_ID item with the ID value
+     **optional: Attributes --> Templates --> stretch report
+   d. save and test your new modal page
+      
+   
+
+

@@ -1,0 +1,78 @@
+
+section A: mark a selected row and change the header
+Navigate to your cars report and open the application builder
+1. give the cars report a static id = cars
+2. create a dynamic action:
+   identification: name = mark selected row
+   event = Click
+   Selection type = jQuery Selector
+   jQuery Selector = #report_cars tr
+3. edit the dynamic actions true action:
+   action = Execute Javascript Code
+   Code =
+   // remove class first
+   $("#report_cars").find('tr.u-warning').removeClass("u-warning");
+   // add class
+   $(this.triggeringElement).closest('tr').addClass("u-warning");
+   // change region title
+   $('#cars_heading').text("Cars, selected: " + $(this.triggeringElement).find('td[headers="MAKE_MODEL"]:first').text());
+4. Save and test
+
+Section B: Classic report templates and page configurations
+1. create a new blank page: Car maintanance
+2. change the page template to "Left Side Column"
+3. add a static content region to the page:
+   a. title = Car Maintanance
+      Text = <p>Search and log car maintanance work. </p>
+      Position = Breadcrumb bar
+      Appearance --> Template = Hero
+                     Icon     = fa-car fam-warning fam-is-danger
+   b. create a subregion in this region:
+      type = static content
+      Appearance --> Template = Blank with attributes
+   c. create an item in this subregion:
+      name = P<XX>_SEARCH_CAR_LP
+      label = License Plate
+      Submit when enter pressed = Yes
+
+4. create a classic report to show car details:
+  a. Title = Car details
+     Type = Classic report
+     Source --> Type = SQL Query
+     SQL Query = 
+     select c.id
+     ,      ct.make||' '||ct.model make_model
+     ,      c.license_plate
+     ,      c.trim
+     ,      c.color
+     ,      dbms_lob.getlength(c.picture) picture
+     from   cars c
+     join   cartypes ct on ct.id = c.cartype_id
+     where c.license_plate = :P<XX>_SEARCH_CAR_LP
+     ;
+     page items to submit = P<XX>_SEARCH_CAR_LP
+     Layout --> Position = Left Column
+     Appearance --> Template Options = header hidden but accessible
+     Attributes:
+     Appearance --> Template = Value Attribute Pairs - Column
+     Pagination --> Type = no Pagination
+     --
+  b. Set the column attributes for column "Picture"
+  c. Only show columns: picture, make_model, trim and color
+  d. Remove all column headings
+  e. save and test
+  f. picture too large, set same css as previous car report page
+
+5. edit the search field to be more visually appealing
+  a. copy the contents of the awp.css file into Page --> CSS --> Inline
+  b. edit the search item P<XX>_SEARCH_CAR_LP :
+     Advanced --> CSS Classes = licenseplate
+  c. Add a On Load Dynamic action to remove the standard apex textfield classes from the search item:
+     apex-item-text text_field
+
+6. Add two reports: maintanance details and maintanance comments with each a modal page form
+   Change the template of the comments report to: comments
+
+
+
+
