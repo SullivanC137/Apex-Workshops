@@ -41,10 +41,10 @@ create table events (
 
 create table event_results (
     id                             number not null constraint event_results_id_pk primary key,
-    event_id                       number
+    event_id                       number not null
                                    constraint event_results_event_id_fk
                                    references events on delete cascade,
-    runner_id                      number
+    runner_id                      number not null
                                    constraint event_results_runner_id_fk
                                    references runners on delete cascade,
     start_time                     varchar2(20),
@@ -52,7 +52,8 @@ create table event_results (
     created                        date not null,
     created_by                     varchar2(255) not null,
     updated                        date not null,
-    updated_by                     varchar2(255) not null
+    updated_by                     varchar2(255) not null,
+    constraint                     event_results_uk_1 unique (event_id,runner_id)
 )
 ;
 
@@ -6871,6 +6872,7 @@ for event in (select id,total_distance from events) loop
   l_counter     := 0;
   l_start_time  := lpad((ceil(dbms_random.value(6,9))||':00:00'),8,'0');
  for i in 1..dbms_random.value(50,150) loop
+   begin
     l_counter    := l_counter + 1;
     l_start_time := case when (l_counter > l_group_count)
                          then substr(l_start_time,1,3)||lpad((to_number(substr(l_start_time,4,2) + 1)),2,'0')||':00'
@@ -6924,6 +6926,10 @@ for event in (select id,total_distance from events) loop
      else null
      end
      );
+  exception
+  when others then
+    dbms_output.put_line('something went wrong');
+  end;
  end loop;
 end loop;
 end;

@@ -1,5 +1,11 @@
 Use case: an app to register running events
 
+Appnames:
+- cool runnings
+- race manager
+- race event manager
+
+
 Entities:
 - runners
   - first name
