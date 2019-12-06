@@ -39,3 +39,72 @@ Code along:
 
 - Save and run your page
 
+Continue Tour / code along
+- SQL Workshop:
+  * Object browser: tables
+  * SQL commands: test a few queries:
+    --
+    select name
+    ,      the_date
+    ,      total_distance
+    from   events;
+    --
+    select first_name
+    ,      last_name
+    ,      team_name
+    ,      gender
+    ,      date_of_birth
+    ,      floor
+            ((sysdate - date_of_birth)/365) as age
+    from   runners;
+    --
+    select r.first_name
+    ,      r.last_name
+    ,      r.gender
+    ,      r.team_name
+    ,      e.name as event_name
+    ,      e.total_distance
+    ,      er.start_time
+    ,      er.end_time
+    from   runners r
+    join   event_results er on r.id = er.runner_id
+    join   events e on e.id = er.event_id;
+    --
+
+Lets extend our app
+- SQL Workshop --> Utilities --> Quick SQL:
+  # auditcols: true
+  # drop     : true
+  volunteers
+    first_name /nn
+    last_name  /nn
+    date_of_birth /nn
+    gender vc1 /nn
+    email
+    phone
+    duties vc100
+  
+- Save script
+- Review and run
+
+
+-Check if your table has been created
+* with object browser
+* with sql script
+Try an insert:
+--
+  INSERT INTO volunteers (
+    first_name,
+    last_name,
+    date_of_birth,
+    gender
+  ) VALUES (
+    'John',
+    'Doe',
+    '13-DEC-1984',
+    'M'
+  );
+-- in sql workshop:
+select * 
+from   volunteers;
+--
