@@ -108,3 +108,23 @@ Try an insert:
 select * 
 from   volunteers;
 --
+
+Lets build some pages on this new table
+(form + report) - the no code way:
+**1. App Builder --> <your app> --> Create Page
+**2. Choose Form --> Report With Form
+**3. Classic Report, Report name: Volunteers, Form name: Volunteer, Form mode: Normal
+**4. Create a new navigation: Volunteers
+**5. Local Database, Table: Volunteers, Show all columns except the audit columns
+**6. Primary Key Column: ID
+**7. Create then run your page. Test it by entering and editing a few volunteers
+** Optional: play around with the settings/names
+
+(editable report) - also no code
+**1. Page Designer --> Create Page
+**2. Form --> Eidtable Interactive Grid
+**3. Name: Multi Row Edit Volunteers
+**4. Create a new navigation entry --> select Volunteers as Parent
+**5. Table: Volunteers, Primary Key: ID
+**6. Create and run page. Test by editing a few volunteers
+** Optional: hide the create update columns
