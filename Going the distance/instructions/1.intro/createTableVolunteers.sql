@@ -7,7 +7,8 @@ create table volunteers (
     first_name                     varchar2(255) not null,
     last_name                      varchar2(255) not null,
     date_of_birth                  date not null,
-    gender                         varchar2(1) not null,
+    gender                         varchar2(1)  constraint volunteers_gender_cc
+                                   check (gender in ('M','F')) not null,
     email                          varchar2(255),
     phone                          varchar2(30),
     duties                         varchar2(100),

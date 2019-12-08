@@ -1,4 +1,7 @@
 This part covers extra navigation and shared components
+Before we start, please download the example applications:
+f101, f102, f103, f104
+
 Code along/Use handouts:
 
 NAVIGATION
@@ -11,20 +14,21 @@ NAVIGATION
   - Button Position = Region Body
 ** Play around with your button template or attributes: for example: set style to: display as link
 - Save and test yoour button navigation
+Optional: add another button to go back to the home screen
 
 SHARED COMPONENTS
 - Go to App Builder --> Shared Components or Page Designer --> Shared Components
 - List of Values --> Create 
 - From scratch --> Name = Gender M/F , Type = Static
 - Display/Return = [{Male,M},{Female,F}]
-- Use this newly created LOV in your volunteers pages by changing the gender field to an LOV field.
+- Use this newly created LOV in your volunteers pages by changing the gender field to an LOV field. Also do it on the report column
 - For example: Select List. Pop-up, Radiobutton
 
 ON YOUR OWN:
 - Create a report and form on the runners and events tables
 
 CODE ALONG:
-- Create a page to add results
+- Create a form page to add results to an event
 
 
 
