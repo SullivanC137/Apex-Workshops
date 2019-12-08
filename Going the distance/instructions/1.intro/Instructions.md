@@ -79,7 +79,7 @@ Lets extend our app
     first_name /nn
     last_name  /nn
     date_of_birth /nn
-    gender vc1 /nn
+    gender vc1 /nn  /check M, F
     email
     phone
     duties vc100

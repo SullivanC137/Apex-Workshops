@@ -1,0 +1,13 @@
+This part covers extra navigation and shared components
+Code along/Use handouts:
+
+NAVIGATION
+- Change your Volunteers page, Page template to: Right side column
+- Create a new region in this right side column called "More Tasks"
+** Your new region should have an attribute: Position = Right side column
+** Add a button to this region to naviagte to your "Volunteers multi row edit" page
+** Button attributes:
+  - Name = MULTI_ROW_EDIT
+  - Button Position = Region Body
+** Play around with your button template or attributes: for example: set style to: display as link
+
