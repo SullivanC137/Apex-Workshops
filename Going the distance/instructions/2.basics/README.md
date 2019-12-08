@@ -27,7 +27,15 @@ SHARED COMPONENTS
 
 ON YOUR OWN:
 - Create a report and form on the runners and events tables
-  * runners: form (normal, not modal) and report
+  * runners: 
+   * report (interactive report).
+     add this css in your inline css page details
+```` css
+img{
+    width:100px;
+    }
+````
+   * form (normal, not modal)
   * events: editable report
   * each with their own navigation link in the menu
 
