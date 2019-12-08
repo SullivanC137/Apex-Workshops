@@ -109,9 +109,7 @@ add text:
     '13-DEC-1984',
     'M'
   );
-````
-1. Check in sql workshop:
-```` sql
+-- after committing:
 select * 
 from   volunteers;
 ````
