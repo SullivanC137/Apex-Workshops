@@ -1,6 +1,7 @@
+#Introduction
 This part consists of a quick tour and a code along.
 
-Tour:
+##Tour:
 - Log into your apex workspace
   Optional: Create a user with your own username
 
