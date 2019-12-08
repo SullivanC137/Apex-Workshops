@@ -1,8 +1,9 @@
-This part covers extra navigation and shared components
-Before we start, please download the example applications:
-f101, f102, f103, f104
+## Basics
 
-Code along/Use handouts:
+This part covers extra navigation and shared components
+Before we start, please download the example applications: f101, f102, f103, f104 and then download them into your workspace. Your new application ID does not have to match this one.
+
+## Code along/Use handouts:
 
 NAVIGATION
 - Change your Volunteers page, Page template to: Right side column
