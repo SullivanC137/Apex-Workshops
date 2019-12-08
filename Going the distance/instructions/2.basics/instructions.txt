@@ -10,4 +10,21 @@ NAVIGATION
   - Name = MULTI_ROW_EDIT
   - Button Position = Region Body
 ** Play around with your button template or attributes: for example: set style to: display as link
+- Save and test yoour button navigation
+
+SHARED COMPONENTS
+- Go to App Builder --> Shared Components or Page Designer --> Shared Components
+- List of Values --> Create 
+- From scratch --> Name = Gender M/F , Type = Static
+- Display/Return = [{Male,M},{Female,F}]
+- Use this newly created LOV in your volunteers pages by changing the gender field to an LOV field.
+- For example: Select List. Pop-up, Radiobutton
+
+ON YOUR OWN:
+- Create a report and form on the runners and events tables
+
+CODE ALONG:
+- Create a page to add results
+
+
 
