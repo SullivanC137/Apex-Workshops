@@ -27,6 +27,9 @@ SHARED COMPONENTS
 
 ON YOUR OWN:
 - Create a report and form on the runners and events tables
+  * runners: form (normal, not modal) and report
+  * events: editable report
+  * each with their own navigation link in the menu
 
 CODE ALONG:
 - Create a form page to add results to an event
