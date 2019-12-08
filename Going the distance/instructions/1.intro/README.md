@@ -2,7 +2,7 @@
 This part consists of a quick tour and a code along.
 
 ### Tour:
-* Log into your apex workspace
+* Log into your apex workspace with awp<some number>/admin/admin.
   Optional: Create a user with your own username
 
 * Main tabs: App Builder, SQL Workshop, Team Development and App Gallery
