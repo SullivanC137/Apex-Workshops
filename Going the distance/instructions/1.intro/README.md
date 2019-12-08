@@ -2,7 +2,7 @@
 This part consists of a quick tour and a code along.
 
 ### Tour:
-* Log into your apex workspace with awp<some number>/admin/admin.
+* Log into your apex workspace with awp<<some number>>/admin/admin.
   Optional: Create a user with your own username
 
 * Main tabs: App Builder, SQL Workshop, Team Development and App Gallery
@@ -116,7 +116,7 @@ from   volunteers;
 
 ## Lets build some pages on this new table
 ### (form + report) - the no code way:
-1. App Builder --> <your app> --> Create Page
+1. App Builder --> <<your app>> --> Create Page
 2. Choose Form --> Report With Form
 3. Classic Report, Report name: Volunteers, Form name: Volunteer, Form mode: Normal
 4. Create a new navigation: Volunteers
