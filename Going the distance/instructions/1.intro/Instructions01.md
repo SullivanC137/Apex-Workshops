@@ -96,11 +96,6 @@ add text:
  ````
 1. Save script
 1. Review and run
-
-
-1. Check if your table has been created
-  * with object browser
-  * with sql script
 1. Try an insert:
 ```` sql
   INSERT INTO volunteers (
@@ -115,7 +110,7 @@ add text:
     'M'
   );
 ````
-1. Or check in sql workshop:
+1. Check in sql workshop:
 ```` sql
 select * 
 from   volunteers;
@@ -130,7 +125,8 @@ from   volunteers;
 5. Local Database, Table: Volunteers, Show all columns except the audit columns
 6. Primary Key Column: ID
 7. Create then run your page. Test it by entering and editing a few volunteers
- Optional: play around with the settings/names
+
+Optional: play around with the settings/names
 
 ### (editable report) - also no code
 1. Page Designer --> Create Page
@@ -139,4 +135,5 @@ from   volunteers;
 4. Create a new navigation entry --> select Volunteers as Parent
 5. Table: Volunteers, Primary Key: ID
 6. Create and run page. Test by editing a few volunteers
- Optional: hide the create update columns
+
+Optional: hide the create update columns
