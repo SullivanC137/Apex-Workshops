@@ -2,7 +2,7 @@
 This part consists of a quick tour and a code along.
 
 ### Tour:
-* Log into your apex workspace
+* Log into your apex workspace with awp\<some number\>/admin/admin.
   Optional: Create a user with your own username
 
 * Main tabs: App Builder, SQL Workshop, Team Development and App Gallery
@@ -21,8 +21,9 @@ This part consists of a quick tour and a code along.
 ### Continue Tour:
 - Edit Page -> Page designer
 - Three Main Blocks
-- Components: regions/items etc
-  * region types
+- Components:
+  * regions/items/buttons etc
+  * region/items/button types
   * attributes
 - run page
 
@@ -45,13 +46,15 @@ This part consists of a quick tour and a code along.
 - SQL Workshop:
   * Object browser: tables
   * SQL commands: test a few queries:
+  * Query 1:
 ```` sql
-    --
     select name
     ,      the_date
     ,      total_distance
     from   events;
-    --
+````
+  * Query 2:
+```` sql
     select first_name
     ,      last_name
     ,      team_name
@@ -60,7 +63,9 @@ This part consists of a quick tour and a code along.
     ,      floor
             ((sysdate - date_of_birth)/365) as age
     from   runners;
-    --
+````
+  * Query 3:
+```` sql
     select r.first_name
     ,      r.last_name
     ,      r.gender
@@ -71,12 +76,11 @@ This part consists of a quick tour and a code along.
     ,      er.end_time
     from   runners r
     join   event_results er on r.id = er.runner_id
-    join   events e on e.id = er.event_id;
-    --
+    join   events e         on e.id = er.event_id;
 ````
 
 ### Lets extend our app
-- SQL Workshop --> Utilities --> Quick SQL:
+1. Go to: SQL Workshop --> Utilities --> Quick SQL:
 add text:
 ````
   # auditcols: true
@@ -90,15 +94,10 @@ add text:
     phone
     duties vc100
  ````
-- Save script
-- Review and run
-
-
--Check if your table has been created
-* with object browser
-* with sql script
-Try an insert:
---
+1. Save script
+1. Review and run
+1. Try an insert:
+```` sql
   INSERT INTO volunteers (
     first_name,
     last_name,
@@ -110,27 +109,29 @@ Try an insert:
     '13-DEC-1984',
     'M'
   );
--- in sql workshop:
+-- after committing:
 select * 
 from   volunteers;
---
+````
 
-Lets build some pages on this new table
-(form + report) - the no code way:
-**1. App Builder --> <your app> --> Create Page
-**2. Choose Form --> Report With Form
-**3. Classic Report, Report name: Volunteers, Form name: Volunteer, Form mode: Normal
-**4. Create a new navigation: Volunteers
-**5. Local Database, Table: Volunteers, Show all columns except the audit columns
-**6. Primary Key Column: ID
-**7. Create then run your page. Test it by entering and editing a few volunteers
-** Optional: play around with the settings/names
+## Lets build some pages on this new table
+### (form + report) - the no code way:
+1. App Builder --> \<your app\> --> Create Page
+2. Choose Form --> Report With Form
+3. Classic Report, Report name: Volunteers, Form name: Volunteer, Form mode: Normal
+4. Create a new navigation: Volunteers
+5. Local Database, Table: Volunteers, Show all columns except the audit columns
+6. Primary Key Column: ID
+7. Create then run your page. Test it by entering and editing a few volunteers
 
-(editable report) - also no code
-**1. Page Designer --> Create Page
-**2. Form --> Eidtable Interactive Grid
-**3. Name: Multi Row Edit Volunteers
-**4. Create a new navigation entry --> select Volunteers as Parent
-**5. Table: Volunteers, Primary Key: ID
-**6. Create and run page. Test by editing a few volunteers
-** Optional: hide the create update columns
+Optional: play around with the settings/names
+
+### (editable report) - also no code
+1. Page Designer --> Create Page
+2. Form --> Eidtable Interactive Grid
+3. Name: Multi Row Edit Volunteers
+4. Create a new navigation entry --> select Volunteers as Parent
+5. Table: Volunteers, Primary Key: ID
+6. Create and run page. Test by editing a few volunteers
+
+Optional: hide the create update columns
