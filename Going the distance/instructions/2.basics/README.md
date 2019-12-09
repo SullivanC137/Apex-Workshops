@@ -63,6 +63,7 @@ Create a form page to add results to an event.
 4. Do the same for runner id
 5. Use these LOV's to also change your result form page. Use PopUp LOV's
 
+6. Optional: change the column headers and navigation icons
 
 
 
