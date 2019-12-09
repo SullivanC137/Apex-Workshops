@@ -8,7 +8,7 @@ edit or delete runners, events and results to the database and also run some pre
 [Get to know the APEX application builder, terminology, basic functionality and develop some pages by coding along with the trainer.](instructions/1.intro/README.md)
 
 ## And we're off!
-[Build your own basic CRUD pages. Add navigation and learn to use shared components.](/instructions/2.basics/README.md)
+[Build your own basic CRUD pages. Add navigation and learn to use shared components.](instructions/2.basics/README.md)
 
 ## Break
 Get some well deserved rest and grab some food for much needed energy for the next module.
