@@ -5,7 +5,7 @@ In this workshop you will be developing an application where racing events can b
 edit or delete runners, events and results to the database and also run some pretty graphs and reports.
 
 ## Warming Up.
-[Get to know the APEX application builder, terminology, basic functionality and develop some pages by coding along with the trainer.](/instructions/1.intro/README.md)
+[Get to know the APEX application builder, terminology, basic functionality and develop some pages by coding along with the trainer.](instructions/1.intro/README.md)
 
 ## And we're off!
 [Build your own basic CRUD pages. Add navigation and learn to use shared components.](/instructions/2.basics/README.md)
