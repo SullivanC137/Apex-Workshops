@@ -5,7 +5,7 @@ Before we start, please download the example applications: f101, f102, f103, f10
 
 ## Code along/Use handouts:
 
-NAVIGATION
+### NAVIGATION
 - Change your Volunteers page, Page template to: Right side column
 - Create a new region in this right side column called "More Tasks"
 ** Your new region should have an attribute: Position = Right side column
@@ -17,7 +17,7 @@ NAVIGATION
 - Save and test yoour button navigation
 Optional: add another button to go back to the home screen
 
-SHARED COMPONENTS
+### SHARED COMPONENTS
 - Go to App Builder --> Shared Components or Page Designer --> Shared Components
 - List of Values --> Create 
 - From scratch --> Name = Gender M/F , Type = Static
@@ -25,21 +25,21 @@ SHARED COMPONENTS
 - Use this newly created LOV in your volunteers pages by changing the gender field to an LOV field. Also do it on the report column
 - For example: Select List. Pop-up, Radiobutton
 
-ON YOUR OWN:
-- Create a report and form on the runners and events tables
-  * runners: 
-   * report (interactive report).
-     add this css in your inline css page details
-```` css
-img{
-    width:100px;
-    }
-````
-   * form (normal, not modal)
-  * events: editable report
-  * each with their own navigation link in the menu
+### ON YOUR OWN/ WATCH THE TRAINER FIRST:
+Read all following instructions first.
+- Create a report and form on the runners and events tables.
+  * for the reports, use an interactive report
+  * for the forms, use a normal non modal form for the runners and a modal form for the events.
+  * Remove unnecessary columns from the reports, set them to hidden. (id, audit columns)
+  * The runners report should have a column for their pictures. Use the "Display Image" column type for this. Add this css in your runners report page details to resize the pictures.
+     ```` css
+     img{
+     width:100px;
+     }
+     ````
+  *  report page should have its own navigation link in the menu
 
-CODE ALONG:
+### CODE ALONG:
 - Create a form page to add results to an event
 
 
