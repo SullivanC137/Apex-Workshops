@@ -35,6 +35,7 @@ On your event result form:
   and    id        != :P12_ID
   ;
   ````
+3. Optional: Make the start time mandatory.
 
 ### Data validation on event result
 A result must be entered in format: hh:mi:ss. (hours:minutes:seconds)
@@ -44,8 +45,25 @@ A result must be entered in format: hh:mi:ss. (hours:minutes:seconds)
 Instructions:
 1. Add following text into Value Place Holder field for your start time and end time items:
 > hh:mi:ss
-2. Add a validation for each field:
-Name = 
+2. Add a validation for start time:
+  Name = Start Time format OK
+  Type = SQL Expression
+  SQL Expression:
+  ```` sql
+  to_number(substr(:P12_START_TIME,1,2)) <= 24
+  and
+  substr(:P12_START_TIME,3,1) = ':'
+  and
+  to_number(substr(:P12_START_TIME,4,2)) <= 59
+  and
+  substr(:P12_START_TIME,6,1) = ':'
+  and
+  to_number(substr(:P12_START_TIME,7,2)) <= 59
+  ````
+  Associated Item = P12_START_TIME
+  Server side condition = Item is NOT NULL
+  Item = P12_START_TIME
+3. Do the same for end time
 
 ### Add two filters to your running reports: event, runner
 Instructions:
