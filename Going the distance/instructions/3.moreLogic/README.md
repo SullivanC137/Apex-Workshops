@@ -11,30 +11,30 @@ Each runner can only have one result per event. This means:
 Instructions:
 On your event result form:
 1. Add a validation:
-  * Name = "Unique runners result on insert"
-  * Type = No rows returned (view help text).
-  * When button pressed = CREATE
-  * SQL Query: (replace 12 with your page number)
-  ```` sql
-  select 1
-  from   event_results
-  where  runner_id = :P12_RUNNER_ID
-  and    event_id  = :P12_EVENT_ID
-  ;
-  ````
+   * Name = "Unique runners result on insert"
+   * Type = No rows returned (view help text).
+   * When button pressed = CREATE
+   * SQL Query: (replace 12 with your page number)
+   ```` sql
+   select 1
+   from   event_results
+   where  runner_id = :P12_RUNNER_ID
+   and    event_id  = :P12_EVENT_ID
+   ;
+   ````
 2. Add another validation:
-  * Name = "Unique runners result on update"
-  * Type = No rows returned (view help text).
-  * When button pressed = UPDATE
-  * SQL Query:
-  ```` sql
-  select 1
-  from   event_results
-  where  runner_id =  :P12_RUNNER_ID
-  and    event_id  =  :P12_EVENT_ID
-  and    id        != :P12_ID
-  ;
-  ````
+   * Name = "Unique runners result on update"
+   * Type = No rows returned (view help text).
+   * When button pressed = UPDATE
+   * SQL Query:
+   ```` sql
+   select 1
+   from   event_results
+   where  runner_id =  :P12_RUNNER_ID
+   and    event_id  =  :P12_EVENT_ID
+   and    id        != :P12_ID
+   ;
+   ````
 3. Optional: Make the start time mandatory.
 
 ### Data validation on event result
@@ -46,23 +46,23 @@ Instructions:
 1. Add following text into Value Place Holder field for your start time and end time items:
 > hh:mi:ss
 2. Add a validation for start time:
-  * Name = Start Time format OK
-  * Type = SQL Expression
-  * SQL Expression:
-  ```` sql
-  to_number(substr(:P12_START_TIME,1,2)) <= 24
-  and
-  substr(:P12_START_TIME,3,1) = ':'
-  and
-  to_number(substr(:P12_START_TIME,4,2)) <= 59
-  and
-  substr(:P12_START_TIME,6,1) = ':'
-  and
-  to_number(substr(:P12_START_TIME,7,2)) <= 59
-  ````
-  * Associated Item = P12_START_TIME
-  * Server side condition = Item is NOT NULL
-  * Item = P12_START_TIME
+   * Name = Start Time format OK
+   * Type = SQL Expression
+   * SQL Expression:
+   ```` sql
+   to_number(substr(:P12_START_TIME,1,2)) <= 24
+   and
+   substr(:P12_START_TIME,3,1) = ':'
+   and
+   to_number(substr(:P12_START_TIME,4,2)) <= 59
+   and
+   substr(:P12_START_TIME,6,1) = ':'
+   and
+   to_number(substr(:P12_START_TIME,7,2)) <= 59
+   ````
+   * Associated Item = P12_START_TIME
+   * Server side condition = Item is NOT NULL
+   * Item = P12_START_TIME
 3. Do the same for end time
 
 ### Extend your result report with running duration per runner
@@ -86,20 +86,20 @@ from   event_results er
 ### Add two filters to your running reports: event, runner
 Instructions:
 1. Add a region before the results region:
-  * Title = Search
-  * Type = Static Content
+   * Title = Search
+   * Type = Static Content
 2. Add two new buttons to this search region:
-  * button 1: SEARCH
-  * button 2: RESET
+   * button 1: SEARCH
+   * button 2: RESET
 3. Add two new items to this search region: (change 11 to your page number)
-  * Name: P11_EVENT_ID
-  ** Type = Pop Up LOV, use shared component
-  * Name: P11_RUNNER_ID
-  ** Type = Pop Up LOV, use shared component
+   * Name: P11_EVENT_ID
+   * Type = Pop Up LOV, use shared component
+   * Name: P11_RUNNER_ID
+   * Type = Pop Up LOV, use shared component
 4. Add a proces to this page to reset and clear the page cache
-  * name = reset
-  * type = Clear session state
-  * When button pressed = RESET
+   * Name = reset
+   * Type = Clear session state
+   * When button pressed = RESET
 5. Change the report Query to:
   ```` sql
   select er.id,
