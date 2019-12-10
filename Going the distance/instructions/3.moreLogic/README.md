@@ -42,9 +42,14 @@ A result must be entered in format: hh:mi:ss. (hours:minutes:seconds)
 2. Error message: "Expected format = (hours:minutes:seconds)"
 
 Instructions:
-Add following text into Value Place Holder field for your start time and end time items:
+1. Add following text into Value Place Holder field for your start time and end time items:
 > hh:mi:ss
+2. Add a validation for each field:
+Name = 
 
 ### Add two filters to your running reports: event, runner
+Instructions:
+Add a button bar to the breadcumb region position
 
 ### Extend your result report with running duration per runner
+Edit your results report: change it from table based to query based with following query:
