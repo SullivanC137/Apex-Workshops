@@ -65,9 +65,60 @@ Instructions:
   * Item = P12_START_TIME
 3. Do the same for end time
 
-### Add two filters to your running reports: event, runner
-Instructions:
-Add a button bar to the breadcumb region position
-
 ### Extend your result report with running duration per runner
 Edit your results report: change it from table based to query based with following query:
+```` sql
+select er.id,
+       er.event_id,
+       er.runner_id,
+       er.start_time,
+       er.end_time,
+         to_char(
+         trunc(sysdate) +
+         (to_date(sysdate||' '||end_time,'dd-mon-yyyy hh24:mi:ss')
+          -
+          to_date(sysdate||' '||start_time,'dd-mon-yyyy hh24:mi:ss')
+         ),'hh24:mi:ss')
+         duration
+from   event_results er
+````
+
+### Add two filters to your running reports: event, runner
+Instructions:
+1. Add a region before the results region:
+  * Title = Search
+  * Type = Static Content
+2. Add two new buttons to this search region:
+  * button 1: SEARCH
+  * button 2: RESET
+3. Add two new items to this search region: (change 11 to your page number)
+  * Name: P11_EVENT_ID
+  ** Type = Pop Up LOV, use shared component
+  * Name: P11_RUNNER_ID
+  ** Type = Pop Up LOV, use shared component
+4. Add a proces to this page to reset and clear the page cache
+  * name = reset
+  * type = Clear session state
+  * When button pressed = RESET
+5. Change the report Query to:
+  ```` sql
+  select er.id,
+         er.event_id,
+         er.runner_id,
+         er.start_time,
+         er.end_time,
+           to_char(
+           trunc(sysdate) +
+           (to_date(sysdate||' '||end_time,'dd-mon-yyyy hh24:mi:ss')
+            -
+            to_date(sysdate||' '||start_time,'dd-mon-yyyy hh24:mi:ss')
+           ),'hh24:mi:ss')
+           duration
+  from   event_results er
+  where (er.event_id = :P11_EVENT_ID   or :P11_EVENT_ID is null)
+  and   (er.runner_id = :P11_RUNNER_ID or :P11_RUNNER_ID is null)
+  ````
+6. Page Items to submit: P11_EVENT_ID,P11_RUNNER_ID (in report settings)
+  
+
+
