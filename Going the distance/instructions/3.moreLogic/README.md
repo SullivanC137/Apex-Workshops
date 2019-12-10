@@ -11,10 +11,10 @@ Each runner can only have one result per event. This means:
 Instructions:
 On your event result form:
 1. Add a validation:
-  Name = "Unique runners result on insert"
-  Type = No rows returned (view help text).
-  When button pressed = CREATE
-  SQL Query: (replace 12 with your page number)
+  * Name = "Unique runners result on insert"
+  * Type = No rows returned (view help text).
+  * When button pressed = CREATE
+  * SQL Query: (replace 12 with your page number)
   ```` sql
   select 1
   from   event_results
@@ -23,10 +23,10 @@ On your event result form:
   ;
   ````
 2. Add another validation:
-  Name = "Unique runners result on update"
-  Type = No rows returned (view help text).
-  When button pressed = UPDATE
-  SQL Query:
+  * Name = "Unique runners result on update"
+  * Type = No rows returned (view help text).
+  * When button pressed = UPDATE
+  * SQL Query:
   ```` sql
   select 1
   from   event_results
@@ -46,9 +46,9 @@ Instructions:
 1. Add following text into Value Place Holder field for your start time and end time items:
 > hh:mi:ss
 2. Add a validation for start time:
-  Name = Start Time format OK
-  Type = SQL Expression
-  SQL Expression:
+  * Name = Start Time format OK
+  * Type = SQL Expression
+  * SQL Expression:
   ```` sql
   to_number(substr(:P12_START_TIME,1,2)) <= 24
   and
@@ -60,9 +60,9 @@ Instructions:
   and
   to_number(substr(:P12_START_TIME,7,2)) <= 59
   ````
-  Associated Item = P12_START_TIME
-  Server side condition = Item is NOT NULL
-  Item = P12_START_TIME
+  * Associated Item = P12_START_TIME
+  * Server side condition = Item is NOT NULL
+  * Item = P12_START_TIME
 3. Do the same for end time
 
 ### Add two filters to your running reports: event, runner
