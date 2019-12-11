@@ -38,7 +38,7 @@ Now the user knows that when a result is found in the report, he cannot insert a
 Instructions:
 1. Add a static id to your results region: results
 2. Create a dynamic action on the results region
-   * NAme = on refresh region disable create button if no data found
+   * NAme = on refresh region disable create button if data found
    * Event = after refresh
    * Region = results
    * Section: Client-side Condition
