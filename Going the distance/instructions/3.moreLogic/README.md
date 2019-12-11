@@ -119,6 +119,27 @@ Instructions:
   and   (er.runner_id = :P11_RUNNER_ID or :P11_RUNNER_ID is null)
   ````
 6. Page Items to submit: P11_EVENT_ID,P11_RUNNER_ID (in report settings)
+7. Save and run
+
+### Add a graph showing how many results are entered per event
+Instructions:
+1. Page Designer --> Add Page --> Blank Page (Charts) --> New navigation (Parent = events)
+2. Create a new region in this page:
+   * Title = Results per event
+   * Type = Chart
+   * Source Type = SQL Query:
+   ```` sql
+   select (select count(*)
+        from   event_results er
+        where  er.event_id = e.id
+        ) value
+    ,       e.name label
+    from events e;
+    ````
+   * LABEL = LABEL , VALUE = VALUE
+3. Save and run
+
+
   
 
 
