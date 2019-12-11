@@ -17,7 +17,7 @@ Get some well deserved rest and grab some food for much needed energy for the ne
 [Add some data validations, more advanced reports and logic.](instructions/3.moreLogic/README.md)
 
 ## The home stretch.
-Add client side behaviour to your pages.
+[Add client side behaviour to your pages.](instructions/4.clientSide/README.md)
 
 ## Cooldown
 Questions, Drinks and Networking
