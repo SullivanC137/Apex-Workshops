@@ -45,10 +45,10 @@ Instructions:
       * Type = Javascript Expression
       * Javascript Expression:
       ```` javascript
-      $('#report_results').find('td.t-Report-cell').length == 0;
+      $('#report_results').find('td.t-Report-cell').length > 0;
       ````
       * True Action:
-         * type = enable
+         * type = disable
          * selection type = button
          * button = CREATE
       * Opposite False action
