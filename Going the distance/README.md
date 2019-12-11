@@ -14,7 +14,7 @@ edit or delete runners, events and results to the database and also run some pre
 Get some well deserved rest and grab some food for much needed energy for the next module.
 
 ## Hitting your stride.
-Add some data validations, more advanced reports and logic.
+[Add some data validations, more advanced reports and logic.](instructions/3.moreLogic/README.md)
 
 ## The home stretch.
 Add client side behaviour to your pages.
