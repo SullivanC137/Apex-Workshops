@@ -127,7 +127,7 @@ Instructions:
 2. Create a new region in this page:
    * Title = Results per event
    * Type = Chart
-   * Source Type = SQL Query:
+   * Series, Source Type = SQL Query:
    ```` sql
    select (select count(*)
         from   event_results er

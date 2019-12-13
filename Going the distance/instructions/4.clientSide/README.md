@@ -1,6 +1,6 @@
 # In the last part of this workshop we add some client side behaviour
 
-Client side behaviour is mostly done trough dynamic actions. Apex generates Javascript based on your dynamic actions.
+Client side behaviour is mostly done through dynamic actions. Apex generates Javascript based on your dynamic actions.
 Lets start with a few simple user requirements:
 
 ### Filtering Event results should not submit page
@@ -19,10 +19,10 @@ Do the same with the runner filter
 
 You can also change the page behaviour by inserting Javascript code in other sections. For example another user requirement
 
-### When scrolling down on the event results page, the search region should not dissapear from view
+### When scrolling down on the event results page, the search region should not disappear from view
 This can be done with a simple (yet undocumented) piece of code.
 Instructions:
-1. give your search region a static id: search
+1. Give your search region a static id: search
 2. Add the following Javascript code to your page details in section: Javascript, execute when page loads.
 ```` javascript
 $("#search").stickyWidget({toggleWidth:true});

@@ -2,7 +2,7 @@
 This part consists of a quick tour and a code along.
 
 ### Tour:
-* Log into your apex workspace with awp\<some number\>/admin/admin.
+* Log into your apex workspace with awp\<some number\>/awp\<some number\>/awp\<some number\>.
   Optional: Create a user with your own username
 
 * Main tabs: App Builder, SQL Workshop, Team Development and App Gallery
@@ -106,7 +106,7 @@ add text:
   ) VALUES (
     'John',
     'Doe',
-    '13-DEC-1984',
+    to_date('13-DEC-1984','dd-MON-yyyy'),
     'M'
   );
 -- after committing:
@@ -128,7 +128,7 @@ Optional: play around with the settings/names
 
 ### (editable report) - also no code
 1. Page Designer --> Create Page
-2. Form --> Eidtable Interactive Grid
+2. Form --> Editable Interactive Grid
 3. Name: Multi Row Edit Volunteers
 4. Create a new navigation entry --> select Volunteers as Parent
 5. Table: Volunteers, Primary Key: ID

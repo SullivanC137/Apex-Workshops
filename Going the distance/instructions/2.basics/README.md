@@ -9,12 +9,12 @@ Before we start, please download the example applications: f101, f102, f103, f10
 - Change your Volunteers page, Page template to: Right side column
 - Create a new region in this right side column called "More Tasks"
 ** Your new region should have an attribute: Position = Right side column
-** Add a button to this region to naviagte to your "Volunteers multi row edit" page
+** Add a button to this region to navigate to your "Volunteers multi row edit" page
 ** Button attributes:
   - Name = MULTI_ROW_EDIT
   - Button Position = Region Body
 ** Play around with your button template or attributes: for example: set style to: display as link
-- Save and test yoour button navigation
+- Save and test your button navigation
 Optional: add another button to go back to the home screen
 
 ### SHARED COMPONENTS
@@ -46,9 +46,9 @@ Create a form page to add results to an event.
   * LOV: Name = "Runner Name return ID" and type = Dynamic
   * Query:
   ```` sql
-  select name||' '||the_date as d,
-       id as r
-  from events
+  select first_name||', '||last_name as d,
+         id as r
+  from runners
   order by 1
   ````
   * LOV: Name = "Event Name return ID" and type = Dynamic
