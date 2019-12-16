@@ -4,6 +4,8 @@ This is a repository of my third workshop at Qualogy Caribbean. It's divided int
 In this workshop you will be developing an application where racing events can be managed. After the workshop you will be able to add,
 edit or delete runners, events and results to the database and also run some pretty graphs and reports.
 
+If you are doing this workshop on apex.oracle.com, please load the [base ddl script](db/createDatamodel_InsertData.sql) before starting.
+
 ## Warming Up.
 [Get to know the APEX application builder, terminology, basic functionality and develop some pages by coding along with the trainer.](instructions/1.intro/README.md)
 
