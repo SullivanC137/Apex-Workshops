@@ -2,7 +2,7 @@
 
 Run [empDep.sql](db/empDep.sql) om de tabellen te creeren en data in te voeren. Gebruik TOAD of de APEX SQL Workshop.
 
-## intro
+## nieuwe applicatie
 Creeer een nieuwe applicatie.</br>
 Navigeer naar de Application Builder en klik op de Create knop.</br>
 Type Applicatie = Desktop</br>

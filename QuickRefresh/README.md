@@ -12,4 +12,4 @@ For compatibility reasons we will use version: 5.1.4
 
 ## Instructions
 Each set of exercises has its own instruction folder and an apex application which you can import and compare with your own app.</br>
-Start with [the first one.](instructions/1.intro/README.md). Instructions will be in Dutch.
+Start with [the first one.](instructions/1.createApp/README.md). Instructions will be in Dutch.
