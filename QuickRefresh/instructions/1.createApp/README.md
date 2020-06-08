@@ -1,6 +1,6 @@
 # Intro
 
-Run [empDep.sql](db/empDep.sql) om de tabellen te creeren en data in te voeren. Gebruik TOAD of de APEX SQL Workshop.
+Run [empDep.sql](../db/empDep.sql) om de tabellen te creeren en data in te voeren. Gebruik TOAD of de APEX SQL Workshop.
 
 ## nieuwe applicatie
 Creeer een nieuwe applicatie.</br>
