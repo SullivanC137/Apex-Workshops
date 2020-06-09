@@ -27,7 +27,7 @@ prompt APPLICATION 107 - Workshop EMP DEP
 -- Application Export:
 --   Application:     107
 --   Name:            Workshop EMP DEP
---   Date and Time:   11:37 Monday June 8, 2020
+--   Date and Time:   14:15 Monday June 8, 2020
 --   Exported By:     SKROMOSOETO
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -48,7 +48,7 @@ prompt APPLICATION 107 - Workshop EMP DEP
 --       Breadcrumbs:            1
 --         Entries:              1
 --     Security:
---       Authentication:         1
+--       Authentication:         2
 --     User Interface:
 --       Themes:                 1
 --       Templates:
@@ -95,7 +95,7 @@ wwv_flow_api.create_flow(
 ,p_direction_right_to_left=>'N'
 ,p_flow_image_prefix => nvl(wwv_flow_application_install.get_image_prefix,'')
 ,p_authentication=>'PLUGIN'
-,p_authentication_id=>wwv_flow_api.id(361621433092491805)
+,p_authentication_id=>wwv_flow_api.id(361739406469522851)
 ,p_application_tab_set=>0
 ,p_logo_image=>'TEXT:Workshop EMP DEP'
 ,p_proxy_server=> nvl(wwv_flow_application_install.get_proxy,'')
@@ -107,7 +107,7 @@ wwv_flow_api.create_flow(
 ,p_rejoin_existing_sessions=>'N'
 ,p_csv_encoding=>'Y'
 ,p_last_updated_by=>'SKROMOSOETO'
-,p_last_upd_yyyymmddhh24miss=>'20200605151336'
+,p_last_upd_yyyymmddhh24miss=>'20200608124528'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_ui_type_name => null
 );
@@ -8710,6 +8710,13 @@ wwv_flow_api.create_authentication(
 ,p_name=>'Database Account'
 ,p_scheme_type=>'NATIVE_DB_ACCOUNTS'
 ,p_invalid_session_type=>'LOGIN'
+,p_use_secure_cookie_yn=>'N'
+,p_ras_mode=>0
+);
+wwv_flow_api.create_authentication(
+ p_id=>wwv_flow_api.id(361739406469522851)
+,p_name=>'Apex accounts'
+,p_scheme_type=>'NATIVE_APEX_ACCOUNTS'
 ,p_use_secure_cookie_yn=>'N'
 ,p_ras_mode=>0
 );
