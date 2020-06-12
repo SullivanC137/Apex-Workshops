@@ -23,6 +23,12 @@ create table emp(
   constraint fk_deptno foreign key (deptno) references dept (deptno)  
 );
 
+-- sequence for departments
+create sequence dept_seq start with 50;
+
+-- sequence for employees
+create sequence emp_seq start with 8000;
+
 -- Insert row into DEPT table using named columns.
 insert into DEPT (DEPTNO, DNAME, LOC)
 values(10, 'ACCOUNTING', 'NEW YORK');
