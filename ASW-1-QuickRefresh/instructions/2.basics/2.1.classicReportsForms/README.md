@@ -45,3 +45,6 @@ Stappen:</br>
 ## Create Report and Form
 ![Report and Form](createReportAndForm.gif)
 
+## Aanpassingen
+Kolomnamen in de overzichten, veldnamen in de formulieren zijn nu nog hetzelfde als de tabel kolomnamen. </br>
+Deze aanpassingen zullen op een later tijdstip volgen.

@@ -1,1 +1,3 @@
-LOV's
+- Aanpassen kolomnamen, veldnamen.
+- LOV's
+- 

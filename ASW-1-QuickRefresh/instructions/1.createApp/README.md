@@ -15,3 +15,7 @@ Het resultaat is een applicatie met twee schermen: De login page en het hoofdsch
 ## Authentication scheme
 Als de apex authenticatie nog niet bestaat maak, dan eentje aan via de "Create" knop.</br>
 ![Authentication Scheme](authSchemes.gif)
+
+
+## Volgende instructie
+[Ga naar de volgende instructie](/../../../Apex-Workshops/QuickRefresh/instructions/2.1.classicReportsForms/)
