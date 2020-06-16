@@ -18,4 +18,4 @@ Als de apex authenticatie nog niet bestaat maak, dan eentje aan via de "Create" 
 
 
 ## Volgende instructie
-[Ga naar de volgende instructie](/../../../Apex-Workshops/QuickRefresh/instructions/2.1.classicReportsForms/)
+[Ga naar de volgende instructie](/../../../Apex-Workshops/ASW-1-QuickRefresh/instructions/2.basics/2.1.classicReportsForms)
