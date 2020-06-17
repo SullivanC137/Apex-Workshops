@@ -11,3 +11,9 @@ In het formulier:</br>
 - Dynamic actions
 In het report scherm:</br>
 - dynamic actions
+
+## Enkele notities
+- Modal pages kun je niet direct vanuit de page designer runnen
+- Elk schermtype kan tot een modal page gemaakt worden, niet alleen formulieren
+- Modal pages hebben dynamic actions nodig op zowel de modal page als het scherm die ze oproept.
+- Je kunt ook inline regions gebruiken om soortgelijke functionaliteit na te bootsen. Hierover later meer.
