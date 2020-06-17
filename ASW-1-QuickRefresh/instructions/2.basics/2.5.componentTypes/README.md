@@ -77,7 +77,14 @@ select dname as d,
 7. Kies voor List Of Values type = "Shared Component" en dan "DNAME_RET_DEPTNO"
 8. Save en run
 
-## Opmerkingen
-- APEX heeft andere shared components aangemaakt tijdens het genereren van de schermen via de wizard. Zoek de verwijzing naar shared components in het scherm.
-- Je kunt de applicatie zelf importeren als naslag.
+## Opdrachten
+- APEX heeft andere shared components aangemaakt tijdens het genereren van de schermen via de wizard. Zoek de verwijzing naar alle shared components in het scherm.
+- Maak voor Employees ook een LOV in Shared Components aan. Deze LOV toont de naam en geeft de empno terug.
+- Pas deze LOV toe bij manager in zowel een formulier als een overzicht
+- Wijzig het veld JOB naar een autocomplete list en gebruik deze query als LOV:
+``` SQL
+select distinct(job)
+from   emp;
+```
+
  
