@@ -8,7 +8,7 @@ Gebruik de page designer om de volgende verschillen te verklaren:</br>
 In het formulier:</br>
 - Page properties
 - Processing
-- Dynamic actions
+- Dynamic actions</br>
 In het report scherm:</br>
 - dynamic actions
 
