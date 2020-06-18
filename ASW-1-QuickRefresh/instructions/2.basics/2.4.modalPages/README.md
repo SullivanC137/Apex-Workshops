@@ -4,7 +4,7 @@ Naam van het menu item = Employees (CR + Modal F)</br>
 APEX genereert opnieuw twee schermen: een Overzicht (Classic report) en een formulier (Modal Form). </br>
 
 ## Zoek de verschillen
-Gebruik de page deisgner om de volgende verschillen te verklaren:</br>
+Gebruik de page designer om de volgende verschillen te verklaren:</br>
 In het formulier:</br>
 - Page properties
 - Processing
