@@ -44,8 +44,8 @@ Tot nu toe hebben we gebruik gemaakt van de Application Builder, Shared Componen
 Gebruik bovenstaande features om zelf de volgende vragen te beantwoorden.</br>
 1. Op welke twee manieren kun je naar shared components navigeren?
 2. Navigeer naar de Navigation Menu en wijzig twee iconen. Page Designer → Shared Components → Navigation Menu → Desktop Navigation Menu → Klik een willekeurige rij → Wijzig veld Image/Class.
-3. Navigeer naar een formulier (bijvoorbeeld Employee) en bekijk de Page Designer (via Eidt Page knop op de Developer Toolbar). </br>
-    - a. Welke drie processen zijn automatisch gegenereerd en waarvoor dienen ze?
+3. Navigeer naar een formulier (bijvoorbeeld Employee) en bekijk de Page Designer (via Edit Page knop op de Developer Toolbar). </br>
+    - a. Welke vier processen zijn automatisch gegenereerd en waarvoor dienen ze?
     - b. Op dit scherm kun je weg navigeren door op te slaan (CREATE,SAVE) of te annuleren (CANCEL). Hoe is dat in dit scherm geimplementeerd?
     - c. Welke item types zijn op dit scherm?
     - d. Wijzig één of meerdere veldnamen.
