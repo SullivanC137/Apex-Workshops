@@ -1,4 +1,4 @@
-# Quick refresh
+# Adding Logic
 
 This is a repository of day 2 of a 4 day APEX training for a client. On this day we will focus on adding page and bussiness logic to our APEX application. We will also introduce and explain some APEX PL/SQL API's.</br>
 Instructions will be in Dutch.
