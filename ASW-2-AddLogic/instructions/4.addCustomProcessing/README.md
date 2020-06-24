@@ -159,10 +159,14 @@ select emp_seq.nextval
 from   apex_collections
 where  collection_name = 'NEW_EMP_ROW'
 ;
+apex_application.g_print_success_message := apex_lang.message('DEP_EMP_ADD_SUCCESS');
 ```
 
-7. Voeg ook een Branch toe naar je Hoofd overzichtscherm en verwijder de close dialog.
-8. Voeg op het eerste wizard scherm: create department een pre-rendering process om de collectie te verwijderen:
+7. navigeer naar shared components en voeg een text message toe:
+  - Name = DEP_EMP_ADD_SUCCESS
+  - Text = Succesfully entered department with employees.
+8. Voeg ook een Branch toe naar je Hoofd overzichtscherm en verwijder de close dialog.
+9. Voeg op het eerste wizard scherm: create department een pre-rendering process om de collectie te verwijderen:
 ```SQL
 declare
   l_collection_name varchar2(30) := 'NEW_EMP_ROW';
@@ -171,9 +175,60 @@ begin
   APEX_COLLECTION.DELETE_COLLECTION(l_collection_name);
  end if;
  end;
+ -- condition: dname is not null
 ```
 </br>
 
+## Application items and processes
+1. Maak een application items aan via shared components: 
+  - F_DEFAULT_CURRENCY
+  - F_DEFAULT_DEPARTMENT
+2. Maak een application process om de default currency te bepalen:
+  - naam: F_GET_DEFAULT_CURR
+  - On Load Before Header (Process Point)
+```SQL
+declare
+  l_currencies apex_application_global.vc_arr2;
+begin
+  l_currencies(1) := 'USD';
+  l_currencies(2) := 'EUR';
+  l_currencies(3) := 'GBP';
+  l_currencies(4) := 'USD';
+  l_currencies(5) := 'EUR';
+  l_currencies(6) := 'GBP';
+  :F_DEFAULT_CURRENCY := l_currencies(trunc(dbms_random.value(1,6)));
+end;
+```
+3. Maak een application computation om de default department te bepalen
+  - naam: F_GET_DEFAULT_DEPT
+  - Type = SQL Query (return single value)
+```SQL
+with random_ordered_depts as
+(
+select deptno
+from   dept
+order by dbms_random.value
+)
+select deptno
+from   random_ordered_depts
+where rownum = 1
+;
+```
+4. Check of de application items gevuld worden.
+5. Pas de app items toe:
+  - gebruik default department in het formulier om een employee aan te maken. De default department moet getoond worden bij het aanmaken van een nieuwe medewerker. Default: type = PLSQL Expression, Expression = :F_DEFAULT_DEPARTMENT
+  - gebruik default currency achter de salaris en commissie velden. Let op: HTML Substitution string voor items = &ITEM_NAME. (ampersand, itemnaam en punt)
+
 ## Opdrachten
 1. Welke functionaliteiten ontbreken in de wizard? Hoe zou je ze implementeren?
-2. Toon een succes melding na het invoeren van de medewerkers. Het aantal ingevoerde medewerkers moet ook zichtbaar zijn. Gebruik hiervoor de plsql api APEX_LANG
+2. Toon een duidelijkere succes melding na het invoeren van de medewerkers. Het aantal ingevoerde medewerkers moet in elk geval ook zichtbaar zijn. Gebruik hiervoor de plsql api's APEX_LANG en apex_application.g_print_success_message. </br> Bijvoorbeeld: "Succesfully entered department KANTINE with 6 employees."
+Bekijk de documentatie op: https://docs.oracle.com/database/apex-5.1/AEAPI/toc.htm </br>
+3. Je kan een maximaal aantal werknemers in een afdeling hebben. Gebruik een application item om deze maximum te beperken op zowel de employee form als de complete department wizard. Gebruik hiervoor ook een message in de shared components.
+
+## Review
+- APEX heeft een aantal handige API's bijv: apex_debug, apex_util, apex_lang
+- APEX collections zijn een krachtige manier om data op te slaan die alleen voor de gebruikers sessie nodig is.
+- pre-rendering processen vs on submit
+- debug mode en session values → APEX SESSIE: wat je op het scherm ziet is niet altijd in sessie opgeslagen.
+- page processes vs application processes
+- computations vs processes

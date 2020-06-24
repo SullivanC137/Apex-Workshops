@@ -22,3 +22,4 @@ where ((instr(e.ename,:P2_SEARCH_ENAME) > 0 and :P2_SEARCH_ENAME is not null) or
 ```
 3. Voeg ook een zoekveld op departments toe, maar dit veld moet een select list zijn.
 4. Voeg een RESET knop toe. Deze knop maakt alle zoekvelden leeg en laadt het scherm opnieuw.
+5. Pas het overzicht aan dmv template options, kolomnamen etc.
