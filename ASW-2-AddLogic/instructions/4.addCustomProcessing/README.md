@@ -73,6 +73,7 @@ Met behulp van een wizard kan de gebruiker een afdeling inclusief medewerkers to
 3. overview → voordat de gebruiker opslaat wordt eerst een overzicht getoond van wat opgeslagen wordt
 </br>
 Stappen:
+
 1. Create Page met de Create Page wizard en kies voor "Wizard".
   - Name = Create complete department
   - Aantal schermen = 3
