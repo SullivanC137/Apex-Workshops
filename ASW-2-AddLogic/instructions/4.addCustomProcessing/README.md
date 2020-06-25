@@ -82,10 +82,10 @@ Stappen:
 2. Vul de naam van de pages in.
 3. Zorg ervoor dat de knop in de right column navigeert naar je eerste scherm in de wizard. Als je op de knop drukt moet ook alle info op de wizard schermen verdwijnen.
 4. Kopieer de items uit het departments scherm en het employee scherm naar het eerste en tweede scherm van de wizard.
-  - de PK itemss hoeven niet in de wizard worden opgenomen
+  - de PK items hoeven niet in de wizard worden opgenomen
   - manager veld hoeft ook niet erbij
   - item source type = null
-5. Voeg een knop toe in het cretae Employee scherm
+5. Voeg een knop toe in het create Employee scherm
   - Name = ADD_ANOTHER
   - Type = Submit
   - Voeg een branch toe dat naar hetzelfde scherm navigeert als je op deze knop drukt
