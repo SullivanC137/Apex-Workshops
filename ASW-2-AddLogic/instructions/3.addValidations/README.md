@@ -16,7 +16,7 @@ Alleen medewerkers van de afdeling SALES mogen commissie krijgen.
 - rechtermuisklik op validations → Click Create Validation → Name = SALES gets commission
 - PLSQL expression:
 ```SQL
-nvl(:P4_COMM,0) > 0 and :P4_DEPTNO = 30
+(nvl(:P4_COMM,0) >= 0 and :P4_DEPTNO = 30) or (:P4_DEPTNO != 30)
 ```
 - Error message: Sales people get commission.
 - associated itm = PXX_COMM
