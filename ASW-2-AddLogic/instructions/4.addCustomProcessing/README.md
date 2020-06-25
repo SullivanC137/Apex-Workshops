@@ -166,7 +166,7 @@ apex_application.g_print_success_message := apex_lang.message('DEP_EMP_ADD_SUCCE
 7. navigeer naar shared components en voeg een text message toe:
   - Name = DEP_EMP_ADD_SUCCESS
   - Text = Succesfully entered department with employees.
-8. Voeg ook een Branch toe naar je Hoofd overzichtscherm en verwijder de close dialog.
+8. Voeg ook een Branch toe naar je Hoofd overzichtscherm (Department Overview) en verwijder de close dialog.
 9. Voeg op het eerste wizard scherm: create department een pre-rendering process om de collectie te verwijderen:
 ```SQL
 declare

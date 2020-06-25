@@ -43,6 +43,7 @@ begin
       WHERE  rownum = 1
       AND    :MGR is null
       ;
+    else null;
     end case;
 exception
   when no_data_found then null;
@@ -54,7 +55,7 @@ end;
 ### Opdrachten
 1. Voeg een validatie toe dat ervoor zorgt dat een medewerker geen manager van zijn manager kan zijn.
 2. Alleen medewerkers met JOB = MANAGER moeten in de selectlist voorkomen
-3. Bij salesmannen moet de applicatie een standaard waarde van 10 bij commissie invullen, als je dit niet zelf invult. Deze standaard waarde van 10 is een systeemparameter en kan tzt aangepast worden. Voeg deze functionliteit toe dmv de default property bij een kolom.
+3. Bij salesmannen moet de applicatie een standaard waarde van 10 bij commissie invullen, als je dit niet zelf invult. Deze standaard waarde van 10 is een systeemparameter en kan tzt aangepast worden. Voeg deze functionaliteit toe dmv de default property bij een kolom.
 
 ## Custom bulk row processing
 We gaan een functionaliteit toe voegen in de classic report om meerdere medewerkers tegelijk te verwijderen.</br>
@@ -74,6 +75,11 @@ Zorg ervoor dat bij deze kolom staat: Escape special characters = No
   - in eerste instantie is alleen de knop: ENABLE_BULK_DELETE zichtbaar, kolom met de selectlist, 
   - Als de gebruiker klikt op deze knop klikt word deze knop onzichtbaar en de rest wel zichtbaar.
   - De gebruiker moet vervolgens medewerkers kunnen verwijderen door op de BULK_DELETE knop te klikken.
+  ```SQL
+  FOR I in 1..APEX_APPLICATION.G_F01.COUNT LOOP
+    DELETE FROM emp WHERE empno = to_number(APEX_APPLICATION.G_F01(i));
+END LOOP;
+  ``
   - TIP: vul een Y of N in PXX_IND_BULK_DELETE_ENABLED afhankelijk of de functionaliteit wel of niet enabled is. Gebruik ook de default waarde in de IND item
 
 ### Opdrachten
