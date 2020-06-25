@@ -201,7 +201,6 @@ begin
 end;
 ```
 3. Maak een application computation om de default department te bepalen
-  - naam: F_GET_DEFAULT_DEPT
   - Type = SQL Query (return single value)
 ```SQL
 with random_ordered_depts as
