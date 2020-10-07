@@ -1,7 +1,8 @@
 <!-- An HTML doc
      - has elements, with opening and closing tags.
        Not all element types have to be closed. eg: input, img
-     - 
+     - elements should have an id
+
   -->
 <h2>CatPhotoApp</h2>  <!-- header -->
 <main>  <!-- main stuff (info for browser) -->
@@ -21,7 +22,12 @@
     <li>thunder</li>
     <li>other cats</li>
   </ol>
-  <form action="https://freecatphotoapp.com/submit-cat-photo">
-    <input type="text" placeholder="cat photo URL"> <!-- input element -->
+  <form action="https://freecatphotoapp.com/submit-cat-photo"> 
+    <!-- form element, with an action enables you to submit data to a server using only html -->
+    <label for="indoor"><input id="indoor" type="radio" name="indoor-outdoor"> Indoor</label>
+    <!-- radio buttons-->
+    <label for="outdoor"><input id="outdoor" type="radio" name="indoor-outdoor"> Outdoor</label><br>
+    <input type="text" placeholder="cat photo URL" required >
+    <button type="submit">Submit</button>
   </form>
 </main>
