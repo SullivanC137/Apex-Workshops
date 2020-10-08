@@ -2,13 +2,11 @@
 In deze module gaan we dieper in op de HTML die gegenereert wordt door APEX, opnieuw mbv een classic report.</br>
 Maak een scherm onder "Administration" en noem het: application objects: een scherm met een classic report met query:
 ```SQL
-select p.product_id,
-       p.product_name, 
-       p.product_description, 
-       p.category, 
-       decode(p.product_avail, 'Y','Yes','N','No') product_avail,
-       p.list_price
-from demo_product_info p
+select object_id
+,      object_name
+,      object_type
+,      created
+from   user_objects
 ```
 Dit scherm heet "Quick Order" en hangt onder het "Orders" menu item.</br>
 1. Zorg ervoor dat kolom product id een link naar scherm 6 is om de product details te bekijken/ aan te passen.
