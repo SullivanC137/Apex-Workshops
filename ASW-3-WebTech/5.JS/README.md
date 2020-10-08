@@ -46,7 +46,7 @@ apex.message.clearErrors();
 
 4. Gebruik een apex collection om de items in de cart tijdelijk op te slaan. De uitdaging hier is om de product id mee te sturen. 1 van de manieren is om een data attribute toe te voegen. Wijzig de link text van de knop naar:
 ```HTML
-<button type="button" title="Add to cart" aria-label="Add to cart" class="t-Button t-Button--noLabel t-Button--icon btn-add-to-cart data-product_id=#PRODUCT_ID# "><span aria-hidden="true" class="t-Icon fa fa-cart-plus "></span></button>
+<button type="button" title="Add to cart" aria-label="Add to cart" class="t-Button t-Button--noLabel t-Button--icon btn-add-to-cart " data-product_id="#PRODUCT_ID#" ><span aria-hidden="true" class="t-Icon fa fa-cart-plus "></span></button>
 ```
   - maak een hidden item: PRODUCT_ID (not protected)
   - vul deze item met de product id als je op de knop klikt, gebruik een javascript expression

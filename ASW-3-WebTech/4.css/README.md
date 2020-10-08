@@ -43,5 +43,5 @@ Met CSS veranderen we het uiterlijk van onze page.</br>Voor deze oefeningen gebr
   - kolom css_class_prod_avail is een hidden column. Hiermee kunnen we dynamisch een CSS class meegeven.
   - Vul bij HTML Expression attribuut van kolom PRODUCT_AVAIL de volgende html in:
   ```HTML
-  <span class="#CSS_CLASS_PROD_AVAIL#">#PRODUCT_AVAIL#</span>
+  <b><span class="#CSS_CLASS_PROD_AVAIL#">#PRODUCT_AVAIL#</span></b>
   ```
