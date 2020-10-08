@@ -13,7 +13,7 @@ Met CSS veranderen we het uiterlijk van onze page.</br>Voor deze oefeningen gebr
   ```
 2. Gebruik de theme roller om je applicatie header en de navigatie een andere kleur te geven. Bijvoorbeeld: #373737
   - Voor de navigatiekleuren: gebruik de configuratie bij theme roller
-  - Voor de header: inspect element op de header. Kijk in chrome developer tolls bij styles en wijzig de kleur naar wens. Kopieer deze style naar "custom css" in de theme roller.
+  - Voor de header: inspect element op de header. Kijk in chrome developer tools bij styles en wijzig de kleur naar wens. Kopieer deze style naar "custom css" in de theme roller.
   - Sla deze wijzigingen op als nieuwe theme: Bijv Vista(ASW Workshop)
 3. We willen nu aan de gebruiker duidelijk maken dat hij op de rijen van dit overzicht kan klikken en wel in veld Description.
   - Geef het overzicht een static ID: products
