@@ -58,7 +58,7 @@ apex.message.clearErrors();
 declare
   l_query           varchar2(3000);
   l_collection_name varchar2(30) := 'CART_CONTENT';
-  cursor c_product_price(b_prod_id)
+  cursor c_product_price(b_prod_id in number)
   is
   select list_price from demo_product_info
   where product_id = b_prod_id
@@ -70,7 +70,7 @@ begin
     (p_collection_name => l_collection_name);
   end if;
   open c_product_price(:P24_PRODUCT_ID);
-  fetc c_product_price into l_list_price;
+  fetch c_product_price into l_list_price;
   close c_product_price;
   APEX_COLLECTION.ADD_MEMBER
     (p_collection_name => l_collection_name,
