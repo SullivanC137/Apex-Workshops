@@ -56,7 +56,6 @@ apex.message.clearErrors();
   - gebruik deze waarde om een apex collection te vullen.
   ```SQL
 declare
-  l_query           varchar2(3000);
   l_collection_name varchar2(30) := 'CART_CONTENT';
   cursor c_product_price(b_prod_id in number)
   is
